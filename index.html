@@ -5,86 +5,89 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Ömer "mikey" Şimşek</title>
     <style>
-           body {
-               background: #cce7ff;
-               font-family: 'Comic Sans MS', cursive, sans-serif;
-               margin: 0;
-               padding: 20px;
-               color: #000;
-           }
+        body {
+            background: #cce7ff;
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
+            font-style: normal;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
 
-           header, footer, section, .card, .profile-card {
-               background: #fffae6;
-               border: 3px dashed #f06;
-               padding: 12px;
-               margin-bottom: 20px;
-           }
+        header, footer, section, .card, .profile-card {
+            background: #fffae6;
+            border: 3px dashed #f06;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
 
-               header h1 {
-                   font-size: 36px;
-                   color: #d40000;
-                   text-shadow: 2px 2px yellow;
-               }
+            header h1 {
+                font-size: 36px;
+                color: #d40000;
+                text-shadow: 2px 2px yellow;
+            }
 
-           p {
-               font-size: 16px;
-               line-height: 1.4;
-           }
+        p {
+            font-size: 16px;
+            line-height: 1.4;
+        }
 
-           nav a {
-               margin-right: 8px;
-               padding: 6px 10px;
-               background: lime;
-               color: purple;
-               border: 2px groove orange;
-               text-decoration: none;
-               font-weight: bold;
-               animation: blink 1.2s infinite;
-           }
+        nav a {
+            margin-right: 8px;
+            padding: 6px 10px;
+            background: lime;
+            color: purple;
+            border: 2px groove orange;
+            text-decoration: none;
+            font-weight: bold;
+            animation: blink 1.2s infinite;
+            font-style: normal;
+        }
 
-           @keyframes blink {
-               0%,50%,100% {
-                   opacity: 1;
-               }
+        @keyframes blink {
+            0%,50%,100% {
+                opacity: 1;
+            }
 
-               25%,75% {
-                   opacity: 0;
-               }
-           }
+            25%,75% {
+                opacity: 0;
+            }
+        }
 
-           .card {
-               border: 2px ridge blue;
-               box-shadow: 5px 5px 0px red;
-           }
+        .card {
+            border: 2px ridge blue;
+            box-shadow: 5px 5px 0px red;
+        }
 
-           .profile-card {
-               border: 4px inset green;
-           }
+        .profile-card {
+            border: 4px inset green;
+        }
 
-           .btn {
-               padding: 8px 12px;
-               background: yellow;
-               color: red;
-               border: 2px outset blue;
-               font-weight: bold;
-               cursor: pointer;
-               font-size: 16px;
-           }
+        .btn {
+            padding: 8px 12px;
+            background: yellow;
+            color: red;
+            border: 2px outset blue;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            font-style: normal;
+        }
 
-               .btn:hover {
-                   background: pink;
-                   color: blue;
-               }
+            .btn:hover {
+                background: pink;
+                color: blue;
+            }
 
-           img {
-               border: 5px dotted purple;
-           }
+        img {
+            border: 5px dotted purple;
+        }
 
-           marquee {
-               margin: 10px 0;
-               color: red;
-               font-size: 18px;
-           }
+        marquee {
+            margin: 10px 0;
+            color: red;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -121,7 +124,9 @@
     <section id="contact" class="profile-card">
         <h2>İletişim</h2>
         <p>E-posta: <a href="mailto:info@cure-ai.app">info@cure-ai.app</a></p>
-        <button class="btn">Mesaj Gönder</button>
+        <button class="btn" onclick="window.open('https://wa.me/905526495095?text=Merhaba%20Ömer%20Faruk!', '_blank')">
+            Mesaj Gönder
+        </button>
     </section>
 
     <footer>
