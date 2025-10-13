@@ -1,18 +1,579 @@
-<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="tr">
 <head>
-    <title>Benim Sitem</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Ömer Faruk Şimşek — Yazılımcı • Portföy</title>
+    <meta name="description" content="Ömer Faruk Şimşek — Yazılımcı. Modern, hızlı ve mobil uyumlu portföy sitesi." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            margin-top: 100px;
-        }
+            /* =========================
+           Temel Değişkenler & Reset
+           ========================= */
+            :root {
+                --bg: #0f1724;
+                --card: #0b1220;
+                --muted: #94a3b8;
+                --accent: #7c3aed; /* mor-vurgu */
+                --accent-2: #06b6d4; /* turkuaz */
+                --glass: rgba(255,255,255,0.04);
+                --radius: 14px;
+                --fw-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+                --max-width: 1100px;
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            html, body {
+                height: 100%
+            }
+
+            body {
+                margin: 0;
+                font-family: var(--fw-sans);
+                background: linear-gradient(180deg,var(--bg) 0%, #071028 100%);
+                color: #e6eef8;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                line-height: 1.45;
+                padding: 32px 20px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .wrap {
+                width: 100%;
+                max-width: var(--max-width)
+            }
+
+            /* =========================
+           Header / Nav
+           ========================= */
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 28px
+            }
+
+            .brand {
+                display: flex;
+                gap: 14px;
+                align-items: center
+            }
+
+            .logo {
+                width: 52px;
+                height: 52px;
+                border-radius: 12px;
+                background: linear-gradient(135deg,var(--accent),var(--accent-2));
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                color: white
+            }
+
+            .brand h1 {
+                font-size: 18px;
+                margin: 0
+            }
+
+            .brand p {
+                margin: 0;
+                font-size: 12px;
+                color: var(--muted)
+            }
+
+            nav {
+                display: flex;
+                gap: 18px;
+                align-items: center
+            }
+
+                nav a {
+                    color: var(--muted);
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 14px;
+                    padding: 8px;
+                    border-radius: 10px
+                }
+
+                    nav a:hover {
+                        color: whitesmoke;
+                        background: rgba(255,255,255,0.03)
+                    }
+
+            .cta {
+                background: linear-gradient(90deg,var(--accent),var(--accent-2));
+                padding: 8px 14px;
+                border-radius: 12px;
+                color: #031124;
+                font-weight: 700;
+                box-shadow: 0 6px 18px rgba(124,58,237,0.12)
+            }
+
+            /* hamburger for mobile */
+            .hamburger {
+                display: none;
+                background: transparent;
+                border: 0;
+                color: var(--muted)
+            }
+
+            /* =========================
+           Hero
+           ========================= */
+            .hero {
+                display: grid;
+                grid-template-columns: 1fr 420px;
+                gap: 28px;
+                align-items: center;
+                margin-bottom: 32px
+            }
+
+            .intro-card {
+                background: var(--card);
+                padding: 28px;
+                border-radius: var(--radius);
+                backdrop-filter: blur(6px);
+                box-shadow: 0 6px 30px rgba(2,6,23,0.6)
+            }
+
+            .kicker {
+                font-size: 13px;
+                color: var(--accent);
+                font-weight: 700;
+                margin-bottom: 12px
+            }
+
+            h2 {
+                margin: 0 0 12px 0;
+                font-size: clamp(20px,4vw,32px)
+            }
+
+            p.lead {
+                color: var(--muted);
+                margin: 0 0 18px
+            }
+
+            .skills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px
+            }
+
+            .skill {
+                background: var(--glass);
+                padding: 8px 10px;
+                border-radius: 10px;
+                font-weight: 600;
+                color: var(--muted);
+                font-size: 13px
+            }
+
+            /* right card */
+            .profile-card {
+                background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+                padding: 20px;
+                border-radius: 16px
+            }
+
+            .avatar {
+                width: 100%;
+                height: 260px;
+                border-radius: 12px;
+                background: linear-gradient(180deg,#09203f 0%, #0b1220 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden
+            }
+
+                .avatar svg {
+                    opacity: 0.95
+                }
+
+            .stats {
+                display: flex;
+                gap: 12px;
+                margin-top: 12px
+            }
+
+            .stat {
+                flex: 1;
+                background: var(--glass);
+                padding: 10px;
+                border-radius: 10px;
+                text-align: center
+            }
+
+                .stat b {
+                    display: block;
+                    font-size: 18px
+                }
+
+            /* =========================
+           Projects grid
+           ========================= */
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 14px;
+                margin-bottom: 28px
+            }
+
+            .card {
+                background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+                padding: 16px;
+                border-radius: 14px;
+                border: 1px solid rgba(255,255,255,0.02);
+            }
+
+            .proj-title {
+                font-weight: 700;
+                margin: 0 0 8px
+            }
+
+            .proj-desc {
+                color: var(--muted);
+                font-size: 14px;
+                margin: 0 0 12px
+            }
+
+            .tags {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap
+            }
+
+            .tag {
+                font-size: 12px;
+                padding: 6px 8px;
+                border-radius: 10px;
+                background: rgba(255,255,255,0.03)
+            }
+
+            /* =========================
+           Contact / Footer
+           ========================= */
+            .contact {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+                align-items: start
+            }
+
+            form {
+                background: var(--card);
+                padding: 18px;
+                border-radius: 12px
+            }
+
+            label {
+                font-size: 13px;
+                color: var(--muted);
+                display: block;
+                margin-bottom: 6px
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid rgba(255,255,255,0.03);
+                background: transparent;
+                color: inherit
+            }
+
+            button[type=submit] {
+                margin-top: 10px;
+                padding: 10px 12px;
+                border-radius: 10px;
+                border: 0;
+                background: linear-gradient(90deg,var(--accent),var(--accent-2));
+                font-weight: 700
+            }
+
+            footer {
+                margin-top: 36px;
+                color: var(--muted);
+                font-size: 13px;
+                text-align: center
+            }
+
+            /* =========================
+           Responsive
+           ========================= */
+            @media (max-width:980px) {
+                .hero {
+                    grid-template-columns: 1fr
+                }
+
+                .avatar {
+                    height: 200px
+                }
+
+                .projects {
+                    grid-template-columns: repeat(2,1fr)
+                }
+            }
+
+            @media (max-width:640px) {
+                body {
+                    padding: 20px
+                }
+
+                nav {
+                    display: none
+                }
+
+                .hamburger {
+                    display: block
+                }
+
+                .projects {
+                    grid-template-columns: 1fr
+                }
+
+                .contact {
+                    grid-template-columns: 1fr
+                }
+
+                .profile-card {
+                    padding: 12px
+                }
+
+                .wrap {
+                    padding: 0
+                }
+            }
+
+            /* accessibility
+        respect reduced motion */
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    transition: none !important
+                }
+            }
+
+            /* small helpers */
+            .muted {
+                color: var(--muted)
+            }
+
+            .grid-slim {
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                gap: 8px
+            }
     </style>
 </head>
 <body>
-    <h1>Merhaba D�nya!</h1>
-    <p>Bu site tamamen �cretsiz, GitHub Pages �zerinde bar�n�yor.</p>
+    <div class="wrap" id="page">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden>ÖF</div>
+                <div>
+                    <h1>Ömer Faruk Şimşek</h1>
+                    <p>Yazılımcı • Unity & Web • Mobil Uyumlu</p>
+                </div>
+            </div>
+
+            <nav aria-label="Ana menü">
+                <a href="#about">Hakkımda</a>
+                <a href="#projects">Projeler</a>
+                <a href="#contact">İletişim</a>
+                <a class="cta" href="#contact">İş birliği</a>
+            </nav>
+
+            <button class="hamburger" id="menuBtn" aria-label="Menüyü aç">☰</button>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="intro-card" id="about">
+                    <div class="kicker">Merhaba, ben Ömer Faruk</div>
+                    <h2 id="type">Yazılımcı — Oyun & Web Geliştirici</h2>
+                    <p class="lead">Unity, C#, Swift, Web teknolojileri (HTML/CSS/JS). Performans odaklı, mobil uyumlu ve temiz mimari tercih eden bir geliştiriciyim.</p>
+                    <div class="skills" aria-hidden>
+                        <span class="skill">Unity</span>
+                        <span class="skill">C#</span>
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">JS</span>
+                        <span class="skill">Swift</span>
+                        <span class="skill">Firebase</span>
+                    </div>
+
+                    <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+                        <a class="cta" href="#projects">Projelerimi Gör</a>
+                        <a style="padding:10px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);font-weight:700" href="#contact">Bana Ulaş</a>
+                    </div>
+
+                    <div style="margin-top:18px;color:var(--muted);font-size:13px">Benim için hızlı demo mu istersin? Aşağıdaki düğme ile bir örnek başlatabilirsin.</div>
+                    <div style="margin-top:12px"><button id="demoBtn" style="padding:10px 12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));font-weight:700">Demo Başlat</button></div>
+                </div>
+
+                <aside class="profile-card" aria-labelledby="profileTitle">
+                    <div class="avatar" role="img" aria-label="Avatar - soyut grafik">
+                        <!-- soyut svg avatar -->
+                        <svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="g1" x1="0" x2="1">
+                                    <stop offset="0" stop-color="#7c3aed" stop-opacity="1" />
+                                    <stop offset="1" stop-color="#06b6d4" stop-opacity="1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="0" y="0" width="220" height="180" rx="12" fill="url(#g1)" />
+                            <g opacity="0.95">
+                                <circle cx="74" cy="72" r="34" fill="rgba(255,255,255,0.06)" />
+                                <rect x="110" y="40" width="88" height="88" rx="10" fill="rgba(255,255,255,0.03)" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between">
+                        <div>
+                            <div id="profileTitle" style="font-weight:700">Ömer Faruk</div>
+                            <div class="muted" style="font-size:13px">Full-stack & Game Dev</div>
+                        </div>
+                        <div style="display:flex;gap:8px;align-items:center">
+                            <button id="themeToggle" style="padding:8px;border-radius:10px;border:0;background:rgba(255,255,255,0.02)">Tema</button>
+                        </div>
+                    </div>
+
+                    <div class="stats" style="margin-top:12px">
+                        <div class="stat"><b>8+</b><span class="muted">Yıl Deneyim</span></div>
+                        <div class="stat"><b>20+</b><span class="muted">Proje</span></div>
+                        <div class="stat"><b>Mobil Uyum</b><span class="muted">%100</span></div>
+                    </div>
+                </aside>
+            </section>
+
+            <section id="projectsSection">
+                <h3 style="margin:0 0 12px 0">Projeler</h3>
+                <div class="projects" id="projects">
+                    <!-- proje kartları JS ile doldurulacak -->
+                </div>
+            </section>
+
+            <section style="margin-top:18px" id="contact">
+                <h3>İletişim</h3>
+                <div class="contact">
+                    <form onsubmit="event.preventDefault();alert('Form gönderimi demo — backend ekle.');">
+                        <label for="name">İsim</label>
+                        <input id="name" placeholder="Adın" required />
+                        <label for="email">E-posta</label>
+                        <input id="email" type="email" placeholder="eposta@ornek.com" required />
+                        <label for="msg">Mesaj</label>
+                        <textarea id="msg" rows="4" placeholder="Ne hakkında konuşmak istiyorsun?"></textarea>
+                        <button type="submit">Gönder</button>
+                    </form>
+
+                    <div style="padding:18px;background:var(--card);border-radius:12px">
+                        <h4 style="margin-top:0">Hızlı Bilgiler</h4>
+                        <div class="grid-slim">
+                            <div>
+                                <div class="muted">Konum</div>
+                                <div>Türkiye</div>
+                            </div>
+                            <div>
+                                <div class="muted">Çalışma Şekli</div>
+                                <div>Freelance / Uzaktan / Ofis</div>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px">
+                            <div class="muted">Araçlar</div>
+                            <div style="margin-top:8px" class="tags">
+                                <span class="tag">Unity</span>
+                                <span class="tag">C#</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Swift</span>
+                                <span class="tag">HTML/CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px;color:var(--muted);font-size:13px">CV veya demo istersen e-postaya gönderebilirim.</div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                © Ömer Faruk Şimşek — {2025} • Hazırsan bir projeye başlayalım.
+            </footer>
+        </main>
+    </div>
+
+    <script>
+    // Basit interaktiflik: mobil menü, tema, dinamik projeler ve tip yazma efekti
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.querySelector('nav');
+    menuBtn && menuBtn.addEventListener('click', ()=>{
+      const open = nav.style.display === 'flex';
+      nav.style.display = open ? 'none' : 'flex';
+      menuBtn.textContent = open ? '☰' : '✕';
+    });
+
+    // Tema toggle: koyu/aydınlık
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle && themeToggle.addEventListener('click', ()=>{
+      if(document.documentElement.hasAttribute('data-theme')){
+        document.documentElement.removeAttribute('data-theme');
+        document.body.style.background = 'linear-gradient(180deg,var(--bg) 0%, #071028 100%)';
+      } else {
+        document.documentElement.setAttribute('data-theme','light');
+        document.body.style.background = 'linear-gradient(180deg,#f7fbff 0%, #eef5ff 100%)';
+        document.body.style.color = '#052337';
+      }
+    });
+
+    // Projeleri doldur
+    const projectData = [
+      {title:'TopView Arena (Unity)',desc:'1v1 top-view dövüş oyunu — Photon ile multiplayer.',tags:['Unity','Photon','Multiplayer']},
+      {title:'Blackjack Multiplayer',desc:'Gerçek zamanlı çok oyunculu Blackjack — Turn-based, server-authoritative.',tags:['Unity','Game','Firebase']},
+      {title:'BodyScan Prototip',desc:'Vücut tarama ve estetik analiz demo uygulaması.',tags:['Swift','ML','ARKit']},
+      {title:'Web Portföy',desc:'Hızlı, responsive ve erişilebilir portföy sitesi örneği.',tags:['HTML','CSS','JS']},
+      {title:'Kanca Tabancası Sistem',desc:'Unity için grappling hook, fizik tabanlı kontrol sistemi.',tags:['Unity','C#','Physics']},
+      {title:'Lisans Anahtarı Sistemi',desc:'Unity -> Firebase REST ile tek-kullanımlık lisans doğrulama.',tags:['Firebase','REST','Unity']}
+    ];
+
+    const projectsEl = document.getElementById('projects');
+    projectData.forEach(p=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `<h4 class="proj-title">${p.title}</h4><p class="proj-desc">${p.desc}</p><div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`;
+      projectsEl.appendChild(card);
+    });
+
+    // Tip yazma efekti
+    const typeEl = document.getElementById('type');
+    const phrases = ['Yazılımcı — Oyun & Web Geliştirici','Unity • C# • Web','Mobil Uyumlu, Performans Odaklı'];
+    let idx=0, ch=0, forward=true;
+    setInterval(()=>{
+      if(!typeEl) return;
+      const full = phrases[idx];
+      typeEl.textContent = full.slice(0,ch);
+      if(forward){ ch++; if(ch>full.length){forward=false; setTimeout(()=>{},800)} }
+      else { ch--; if(ch<=0){forward=true; idx=(idx+1)%phrases.length} }
+    },80);
+
+    // Demo butonu küçük bir animasyon tetikler (örnek)
+    document.getElementById('demoBtn').addEventListener('click', ()=>{
+      const first = document.querySelector('.card');
+      if(!first) return;
+      first.animate([{transform:'scale(1)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:420,iterations:1});
+      first.style.boxShadow = '0 10px 40px rgba(7,12,30,0.6)';
+      setTimeout(()=>first.style.boxShadow='',600);
+    });
+
+    // küçük erişilebilirlik: klavye ile menüyü açma (Enter)
+    menuBtn && menuBtn.addEventListener('keyup', (e)=>{ if(e.key==='Enter') menuBtn.click(); });
+
+    </script>
 </body>
 </html>
