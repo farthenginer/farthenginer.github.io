@@ -2,137 +2,153 @@
 <html lang="tr">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Ömer "mikey" Şimşek</title>
+
     <style>
         body {
-            background: #cce7ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-style: normal;
+            background: #99ccff;
+            font-family: "Times New Roman", serif;
             margin: 0;
             padding: 20px;
-            color: #000;
+            color: black;
         }
 
-        header, footer, section, .card, .profile-card {
-            background: #fffae6;
-            border: 3px dashed #f06;
-            padding: 12px;
+        header, section, footer {
+            background: #ffffcc;
+            border: 3px dotted red;
+            padding: 15px;
             margin-bottom: 20px;
         }
 
-            header h1 {
-                font-size: 36px;
-                color: #d40000;
-                text-shadow: 2px 2px yellow;
-            }
-
-        p {
-            font-size: 16px;
-            line-height: 1.4;
+        h1, h2 {
+            font-family: "Times New Roman", serif;
+            color: #990000;
+            text-shadow: 2px 2px #ffff00;
         }
 
         nav a {
+            background: #00ff00;
+            padding: 5px 10px;
+            border: 2px inset purple;
             margin-right: 8px;
-            padding: 6px 10px;
-            background: lime;
-            color: purple;
-            border: 2px groove orange;
+            color: blue;
             text-decoration: none;
             font-weight: bold;
-            animation: blink 1.2s infinite;
-            font-style: normal;
+            font-family: "Times New Roman", serif;
+            animation: blink 1s infinite;
         }
 
         @keyframes blink {
-            0%,50%,100% {
+            0%, 50% {
                 opacity: 1;
             }
 
-            25%,75% {
+            25%, 75% {
                 opacity: 0;
             }
         }
 
         .card {
-            border: 2px ridge blue;
-            box-shadow: 5px 5px 0px red;
-        }
-
-        .profile-card {
-            border: 4px inset green;
-        }
-
-        .btn {
-            padding: 8px 12px;
-            background: yellow;
-            color: red;
-            border: 2px outset blue;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-            font-style: normal;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-            .btn:hover {
-                background: pink;
-                color: blue;
-            }
-
-        img {
-            border: 5px dotted purple;
+            border: 2px solid blue;
+            box-shadow: 5px 5px 0px #ff0000;
+            background: #ffebcd;
+            padding: 10px;
+            font-family: "Times New Roman", serif;
         }
 
         marquee {
-            margin: 10px 0;
-            color: red;
             font-size: 18px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: darkred;
+            font-family: "Times New Roman", serif;
+            margin-bottom: 10px;
         }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        .insta-box {
+            background: #fff0f0;
+            padding: 10px;
+            border: 2px dashed purple;
+            margin-top: 10px;
+        }
+
+            .insta-box a {
+                display: block;
+                margin-bottom: 6px;
+                color: #0000cc;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+        img {
+            border: 4px groove purple;
+        }
+        .gallery-box {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+            .gallery-box img {
+                border: 4px double red;
+                padding: 4px;
+                background: #ffffe0;
+                box-shadow: 3px 3px 0px #000;
+            }
+
     </style>
 </head>
+
 <body>
+
     <header>
-        <h1>Ömer Faruk Şimşek</h1>
-        <marquee>Naber la</marquee>
+        <h1>Ömer Faruk "MIKEY" Şimşek</h1>
+        <marquee>NBR</marquee>
+
         <nav>
             <a href="#about">Hakkımda</a>
             <a href="#projects">Projeler</a>
+            <a href="#instagram">Instagram</a>
             <a href="#contact">İletişim</a>
         </nav>
     </header>
 
     <section id="about" class="card">
         <h2>Hakkımda</h2>
-        <p>Gencler nabionuz. Yazilim falan yapiom 5 yildir. sadeliği severim. Bide mmmmaaa---</p>
-        <button class="btn" onclick="window.open('https://wa.me/905526495095?text=Merhaba%20Ömer%20Faruk!', '_blank')">
-            Yaz Bana :)
-        </button>
+        <p>Ömer Faruk Şimşek nació en Malatya el 7 de noviembre de 2007. Creció en un pequeño pueblo. Ni siquiera había internet en su barrio. Actualmente tiene 18 años, mide 1,74 metros y pesa aproximadamente 65 kilos. Está enamorado de una chica de ojos azules, pero creo que ella aún no siente lo mismo. Su mayor sueño es vivir con su novia en Roquetas de Mar, Almería, España. Ya veremos. No te preocupes demasiado. Habla inglés y turco con fluidez.</p>
     </section>
-
+    
     <section id="projects" class="card">
         <h2>Projeler</h2>
         <ul>
             <li>Tarihin Sanal Yüzü 🕹️</li>
-            <li>BlackJack Multiplayer(Günah) 🃏</li>
-            <li>BodyScan Prototip Kinect 📱</li>
-            <li>Tiktok Tersine Mühendislik API'si (yasak) 🌐</li>
-            <li>Kanca Tabancası Sistemi (Çöp) 🎯</li>
-            <li>Lisans Anahtarı Sistemi (Basit)🔑</li>
+            <li>BlackJack Multiplayer 🃏</li>
+            <li>BodyScan Kinect 📱</li>
+            <li>Tiktok Reverse Engineering 🌐</li>
+            <li>Kanca Tabancası Sistemi 🎯</li>
+            <li>Lisans Anahtarı Sistemi 🔑</li>
+            <li>Cloth AI</li>
         </ul>
     </section>
 
-    <section id="contact" class="profile-card">
-        <h2>İletişim</h2>
-        <p>E-posta: <a href="mailto:info@cure-ai.app">info@cure-ai.app</a></p>
-        <button class="btn" onclick="window.open('https://wa.me/905526495095?text=Merhaba%20Ömer%20Faruk!', '_blank')">
-            Mesaj Gönder
-        </button>
+    <section id="instagram" class="card insta-box">
+        <h2>Instagram Hesaplarım (İstek Kabul Etmiyom b.haric)</h2>
+
+        <a href="https://instagram.com/omfrsk" target="_blank">@omfrsk (main)</a>
+        <a href="https://instagram.com/omerfarukksimsek" target="_blank">@omerfarukksimsek (old)</a>
+        <a href="https://instagram.com/burdasadecebenvariim" target="_blank">@burdasadecebenvariim (googledrivegibikullanıyom)</a>
+        <a href="https://instagram.com/monobehaviour" target="_blank">@monobehaviour (nick güzel die actım)</a>
     </section>
 
+    <section id="contact" class="card">
+        <h2>İletişim</h2>
+        <p>E-posta: <a href="mailto:info@cure-ai.app">mikey@omerfaruksimsek.com</a></p>
+    </section>
     <footer>
-        <marquee>© Created By — Ömer "MIKEY" Şimşek at sept. 2025</marquee>
+        <marquee>© 2025 - NAHİDEEEEEEEEĞĞEĞEĞEĞĞEĞEĞEĞĞEĞEĞEĞEĞEĞE < 3 (KALP) *</marquee>
     </footer>
+
 </body>
 </html>
