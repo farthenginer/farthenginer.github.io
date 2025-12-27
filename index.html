@@ -1,154 +1,115 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="utf-8" />
-    <title>Ömer "mikey" Şimşek</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mavi Hayaller</title>
 
     <style>
-        body {
-            background: #99ccff;
-            font-family: "Times New Roman", serif;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 20px;
-            color: black;
+            padding: 0;
         }
 
-        header, section, footer {
-            background: #ffffcc;
-            border: 3px dotted red;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-
-        h1, h2 {
-            font-family: "Times New Roman", serif;
-            color: #990000;
-            text-shadow: 2px 2px #ffff00;
-        }
-
-        nav a {
-            background: #00ff00;
-            padding: 5px 10px;
-            border: 2px inset purple;
-            margin-right: 8px;
-            color: blue;
-            text-decoration: none;
-            font-weight: bold;
-            font-family: "Times New Roman", serif;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% {
-                opacity: 1;
-            }
-
-            25%, 75% {
-                opacity: 0;
-            }
-        }
-
-        .card {
-            border: 2px solid blue;
-            box-shadow: 5px 5px 0px #ff0000;
-            background: #ffebcd;
-            padding: 10px;
-            font-family: "Times New Roman", serif;
-        }
-
-        marquee {
-            font-size: 18px;
-            color: darkred;
-            font-family: "Times New Roman", serif;
-            margin-bottom: 10px;
-        }
-
-        ul li {
-            margin-bottom: 5px;
-        }
-
-        .insta-box {
-            background: #fff0f0;
-            padding: 10px;
-            border: 2px dashed purple;
-            margin-top: 10px;
-        }
-
-            .insta-box a {
-                display: block;
-                margin-bottom: 6px;
-                color: #0000cc;
-                font-weight: bold;
-                text-decoration: none;
-            }
-
-        img {
-            border: 4px groove purple;
-        }
-        .gallery-box {
+        body {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #fff1eb, #fdfbfb);
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            font-family: "Georgia", serif;
+            color: #2b2b2b;
+            padding: 20px;
         }
 
-            .gallery-box img {
-                border: 4px double red;
-                padding: 4px;
-                background: #ffffe0;
-                box-shadow: 3px 3px 0px #000;
+        .poem-container {
+            max-width: 620px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 18px;
+            padding: 36px 28px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            letter-spacing: 4px;
+            margin-bottom: 26px;
+            font-size: 1.9rem;
+            color: #c06c84;
+        }
+
+        .poem p {
+            margin-bottom: 18px;
+            line-height: 1.9;
+            font-size: 1.08rem;
+        }
+
+        .poem .break {
+            margin-bottom: 30px;
+        }
+
+        .signature {
+            margin-top: 34px;
+            text-align: right;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #7a7a7a;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
             }
 
+            .poem p {
+                font-size: 1.02rem;
+            }
+        }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>Ömer Faruk "MIKEY" Şimşek</h1>
-        <marquee>NBR</marquee>
+    <div class="poem-container">
+        <h1>Mavi Hayaller</h1>
 
-        <nav>
-            <a href="#about">Hakkımda</a>
-            <a href="#projects">Projeler</a>
-            <a href="#instagram">Instagram</a>
-            <a href="#contact">İletişim</a>
-        </nav>
-    </header>
+        <div class="poem">
+            <p>
+                Denizin içinde yanıyor bir liman.<br>
+                Dışında fırtınalar kopuyor,<br>
+                İçinde sessiz, sensiz bir sarı.<br>
+                Kıskanırdım, yüzerdim kıyısında,<br>
+                Çekerdi içine, çarpardı girdabı.
+            </p>
 
-    <section id="about" class="card">
-        <h2>Hakkımda</h2>
-        <p>Ömer Faruk Şimşek nació en Malatya el 7 de noviembre de 2007. Creció en un pequeño pueblo. Ni siquiera había internet en su barrio. Actualmente tiene 18 años, mide 1,74 metros y pesa aproximadamente 65 kilos. Está enamorado de una chica de ojos azules, pero creo que ella aún no siente lo mismo. Su mayor sueño es vivir con su novia en Roquetas de Mar, Almería, España. Ya veremos. No te preocupes demasiado. Habla inglés y turco con fluidez.</p>
-    </section>
-    
-    <section id="projects" class="card">
-        <h2>Projeler</h2>
-        <ul>
-            <li>Tarihin Sanal Yüzü 🕹️</li>
-            <li>BlackJack Multiplayer 🃏</li>
-            <li>BodyScan Kinect 📱</li>
-            <li>Tiktok Reverse Engineering 🌐</li>
-            <li>Kanca Tabancası Sistemi 🎯</li>
-            <li>Lisans Anahtarı Sistemi 🔑</li>
-            <li>Cloth AI</li>
-        </ul>
-    </section>
+            <p class="break"></p>
 
-    <section id="instagram" class="card insta-box">
-        <h2>Instagram Hesaplarım (İstek Kabul Etmiyom b.haric)</h2>
+            <p>
+                Gözlerindeyken gördüm ıssız mavi hayalleri,<br>
+                Ellerindeyken gezdim uçsuz kır bahçeleri.<br>
+                Ahşap düşlerimdeydin hep,<br>
+                Yürüdük,<br>
+                sarıldık,<br>
+                Uyandık sevgilim.<br>
+                Durgundu limanlar, sendin sebepleri.
+            </p>
 
-        <a href="https://instagram.com/omfrsk" target="_blank">@omfrsk (main)</a>
-        <a href="https://instagram.com/omerfarukksimsek" target="_blank">@omerfarukksimsek (old)</a>
-        <a href="https://instagram.com/burdasadecebenvariim" target="_blank">@burdasadecebenvariim (googledrivegibikullanıyom)</a>
-        <a href="https://instagram.com/monobehaviour" target="_blank">@monobehaviour (nick güzel die actım)</a>
-    </section>
+            <p class="break"></p>
 
-    <section id="contact" class="card">
-        <h2>İletişim</h2>
-        <p>E-posta: <a href="mailto:info@cure-ai.app">mikey@omerfaruksimsek.com</a></p>
-    </section>
-    <footer>
-        <marquee>© 2025 - NAHİDEEEEEEEEĞĞEĞEĞEĞĞEĞEĞEĞĞEĞEĞEĞEĞEĞE < 3 (KALP) *</marquee>
-    </footer>
+            <p>
+                Bu sabah bir başkaydı kıyın,<br>
+                Uğrayamadım hiç, derindi sular.<br>
+                Çabasızdın her vakit, hüzündü sevgin,<br>
+                Cansızdı Mikey, serindi sular.
+            </p>
+        </div>
+
+        <div class="signature">
+            — Ömer Faruk Şimşek - 
+            18.12.2025
+        </div>
+    </div>
 
 </body>
 </html>
