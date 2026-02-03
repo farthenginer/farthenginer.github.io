@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    font-family: 'Patrick Hand', cursive;
+    background-color: #eaf0ff;
+}
+
+.page {
+    max-width: 520px;
+    margin: auto;
+    padding: 24px;
+    background: repeating-linear-gradient( to bottom, #eaf0ff, #eaf0ff 28px, #c7d6ff 29px );
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+    header img {
+        width: 150px;
+        border-radius: 100px;
+        margin-bottom: 8px;
+    }
+
+h1 {
+    margin: 6px 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #5a6fb0;
+    font-size: 16px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+
+a {
+    color: #1b2f63;
+    text-decoration: underline;
+    text-decoration-color: #9fb4ff;
+}
+
+    a:hover {
+        color: #2b5cff;
+    }
+
+.section-title {
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 36px;
+}
+    section p:first-child {
+        margin-top: 0;
+    }
+
+.note {
+    margin: 28px 0;
+    font-size: 17px;
+    color: #3b4f8f;
+}
+.youtube-note {
+    display: flex;
+    justify-content: left;
+    margin: 36px 0;
+}
+
+    .youtube-note a {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: #f0f4ff;
+        padding: 14px 18px;
+        border-radius: 10px;
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        transform: rotate(-1deg);
+        text-decoration: none;
+    }
+
+    .youtube-note img {
+        width: 42px;
+    }
+
+.yt-name {
+    font-size: 18px;
+    color: #1b2f63;
+}
+
+.yt-sub {
+    font-size: 14px;
+    color: #5a6fb0;
+}
+
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+    .project img {
+        width: 42px;
+        height: 42px;
+        border-radius: 25%;
+        object-fit: cover;
+
+    }
+
+
+.project-title {
+    font-size: 18px;
+}
+
+.project-desc {
+    font-size: 15px;
+    color: #4a5f9c;
+    margin-top: 4px;
+}
+
+.links {
+    list-style: none;
+    padding-left: 0;
+}
+
+    .links li {
+        margin-bottom: 8px;
+    }
+
+
+@media (max-width: 520px) {
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}

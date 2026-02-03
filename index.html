@@ -1,102 +1,122 @@
 ﻿<!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Ömer Faruk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mavi Hayaller</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <!-- el yazısı font -->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
-        body {
-            min-height: 100vh;
-            background: linear-gradient(180deg, #fff1eb, #fdfbfb);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: "Georgia", serif;
-            color: #2b2b2b;
-            padding: 20px;
-        }
-
-        .poem-container {
-            max-width: 620px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            border-radius: 18px;
-            padding: 36px 28px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
-
-        h1 {
-            text-align: center;
-            letter-spacing: 4px;
-            margin-bottom: 26px;
-            font-size: 1.9rem;
-            color: #c06c84;
-        }
-
-        .poem p {
-            margin-bottom: 18px;
-            line-height: 1.9;
-            font-size: 1.08rem;
-        }
-
-        .poem .break {
-            margin-bottom: 30px;
-        }
-
-        .signature {
-            margin-top: 34px;
-            text-align: right;
-            font-style: italic;
-            font-size: 0.95rem;
-            color: #7a7a7a;
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            .poem p {
-                font-size: 1.02rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <div class="page">
 
-    <div class="poem-container">
-        <h1>Mavi Hayaller</h1>
+        <header>
+            <img src="profile.jpg" alt="profile">
+            <h1>Ömer Faruk Şimşek</h1>
+            <p class="subtitle">Ömer "Mikey" Şimşek</p>
+        </header>
 
-        <div class="poem">
+        <section>
             <p>
-               
+                My name is Ömer, I am an 18-year-old developer living in Malatya.
+                I have been involved in software development since the age of 12,
+                improving myself in game development with Unity despite limited resources.
             </p>
 
-            <p class="break"></p>
-
             <p>
-                
+                During this journey, I have successfully delivered over 50 freelance projects
+                and took part in the “Tarihin Sanal Yüzü” project, which reached the TÜBİTAK 2204-A
+                finals in Ankara.
             </p>
 
-            <p class="break"></p>
+            <p>
+                I have also developed socially responsible games and I am currently working
+                on a mobile and AI-focused startup called “WAWiever.”
+            </p>
 
             <p>
-               
+                You can reach me at
+                <a href="mailto:infobeekgames@gmail.com">infobeekgames@gmail.com</a>
             </p>
-        </div>
+        </section>
 
-        <div class="signature">
-            — Ömer Faruk Şimşek - 
-            18.12.2025
-        </div>
+
+        <section>
+            <section class="youtube-note">
+                <a href="https://youtube.com/@mikeysimsek" target="_blank">
+                    <img src="icons/youtube.jpg" alt="YouTube">
+                    <div>
+                        <div class="yt-name">Mikey Şimşek</div>
+                        <div class="yt-sub">YouTube channel</div>
+                    </div>
+                </a>
+            </section>
+
+
+
+
+            <p class="section-title">projects:</p>
+
+            <div class="projects">
+
+                <div class="project">
+                    <img src="icons/echox.png">
+                    <div>
+                        <a href="https://app.akindo.io/communities/Be6MxNBAliQK2PdL" target="_blank" class="project-title">EchoX Runner</a>
+                        <div class="project-desc">
+                            EchoX Runner is a voice-controlled 3D Play-to-Earn game!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="icons/tsy.png">
+                    <div>
+                        <a href="https://play.google.com/store/apps/details?id=com.beekgames.tarihinsanalyuzumcal&hl=tr" target="_blank" class="project-title">Tarihin Sanal Yüzü</a>
+                        <div class="project-desc">
+                            Tarihin Sanal Yüzü improves your knowledge of history from 1000 to 1200.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="icons/scl.jpg">
+                    <div>
+                        <a href="#" class="project-title">Science Line</a>
+                        <div class="project-desc">
+                            It is a multiplayer quiz game built with Photon PUN and Firebase.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="icons/knct.png">
+                    <div>
+                        <a href="#" class="project-title">Kinect Runners</a>
+                        <div class="project-desc">
+                            Kinect Runners is a physical Unity game played using children’s movements via Xbox Kinect.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <p class="section-title">links:</p>
+            <ul class="links">
+                <li><a href="https://github.com/farthenginer" target="_blank">GitHub</a></li>
+                <li><a href="https://www.youtube.com/@mikeysimsek" target="_blank">YouTube</a></li>
+                <li><a href="https://www.linkedin.com/in/%C3%B6mer-faruk-%C5%9Fim%C5%9Fek-461aab27a/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://mastodon.social/@omersimsek" target="_blank">Mastodon</a></li>
+                <li><a href="https://mikey-manji.itch.io/" target="_blank">Itch.io</a></li>
+            </ul>
+        </section>
+
     </div>
-
 </body>
 </html>
