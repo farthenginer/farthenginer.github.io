@@ -1,0 +1,354 @@
+
+<style>
+  .wrap { padding: 16px 0; font-family: var(--font-sans); color: var(--color-text-primary); }
+  h2 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
+  .sub { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 16px; }
+  
+  .ay-block { margin-bottom: 20px; border: 1px solid var(--color-border-tertiary); border-radius: 12px; overflow: hidden; }
+  .ay-header { padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+  .ay-no { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; opacity: .6; }
+  .ay-title { font-size: 15px; font-weight: 500; }
+  .ay-desc { font-size: 12px; opacity: .7; margin-left: auto; }
+
+  .ders-rows { padding: 6px 14px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .ders-row { display: flex; gap: 8px; align-items: flex-start; }
+  .ders-label { font-size: 12px; font-weight: 500; min-width: 90px; padding-top: 4px; opacity: .75; }
+  .pills { display: flex; flex-wrap: wrap; gap: 5px; }
+  .pill { font-size: 11px; padding: 3px 9px; border-radius: 20px; border: 1px solid; }
+  .note-row { font-size: 11px; color: var(--color-text-tertiary); padding: 4px 0 2px; border-top: 1px solid var(--color-border-tertiary); margin-top: 4px; }
+
+  /* Ay renkleri */
+  .a1 .ay-header { background: #E6F1FB; } /* mavi */
+  .a2 .ay-header { background: #EEEDFE; } /* mor */
+  .a3 .ay-header { background: #EAF3DE; } /* yeşil */
+  .a1 .ay-title, .a1 .ay-no, .a1 .ay-desc { color: #0C447C; }
+  .a2 .ay-title, .a2 .ay-no, .a2 .ay-desc { color: #3C3489; }
+  .a3 .ay-title, .a3 .ay-no, .a3 .ay-desc { color: #27500A; }
+
+  /* pill renkleri */
+  .pt  { background:#E6F1FB; border-color:#85B7EB; color:#0C447C; }
+  .pm  { background:#EEEDFE; border-color:#AFA9EC; color:#3C3489; }
+  .ps  { background:#EAF3DE; border-color:#97C459; color:#27500A; }
+  .pf  { background:#FAEEDA; border-color:#EF9F27; color:#633806; }
+  .pr  { background:#FAECE7; border-color:#F0997B; color:#4A1B0C; }
+
+  /* Günlük dağılım tablosu */
+  .plan-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 16px; }
+  .plan-table th { text-align: left; font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-secondary); padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary); }
+  .plan-table td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-tertiary); vertical-align: top; }
+  .plan-table tr:last-child td { border-bottom: none; }
+  .gun { font-weight: 500; font-size: 12px; }
+  .saat-badge { display:inline-block; padding:2px 7px; border-radius:20px; font-size:11px; font-weight:500; margin-right:3px; }
+
+  .sb-t { background:#E6F1FB; color:#185FA5; }
+  .sb-m { background:#EEEDFE; color:#534AB7; }
+  .sb-s { background:#EAF3DE; color:#3B6D11; }
+  .sb-f { background:#FAEEDA; color:#854F0B; }
+  .sb-r { background:#FAECE7; color:#993C1D; }
+  .sb-d { background:#F1EFE8; color:#5F5E5A; }
+
+  .hedef-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .hedef-card { flex:1; min-width:80px; padding:8px 12px; border-radius:10px; border:1px solid; }
+  .hedef-card .hl { font-size:10px; font-weight:500; text-transform:uppercase; letter-spacing:.05em; opacity:.6; margin-bottom:2px; }
+  .hedef-card .hv { font-size:16px; font-weight:500; }
+  .hc-t { background:#E6F1FB; border-color:#85B7EB; color:#0C447C; }
+  .hc-m { background:#EEEDFE; border-color:#AFA9EC; color:#3C3489; }
+  .hc-s { background:#EAF3DE; border-color:#97C459; color:#27500A; }
+  .hc-f { background:#FAEEDA; border-color:#EF9F27; color:#633806; }
+  .hc-am { background:#EEEDFE; border-color:#7F77DD; color:#26215C; }
+  .hc-af { background:#FAEEDA; border-color:#BA7517; color:#412402; }
+
+  .divider { height:1px; background:var(--color-border-tertiary); margin:16px 0; }
+  .section-title { font-size:13px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; color:var(--color-text-tertiary); margin-bottom:10px; }
+
+  @media (prefers-color-scheme: dark) {
+    .a1 .ay-header { background:#0C447C; }
+    .a2 .ay-header { background:#3C3489; }
+    .a3 .ay-header { background:#27500A; }
+    .a1 .ay-title, .a1 .ay-no, .a1 .ay-desc { color:#B5D4F4; }
+    .a2 .ay-title, .a2 .ay-no, .a2 .ay-desc { color:#CECBF6; }
+    .a3 .ay-title, .a3 .ay-no, .a3 .ay-desc { color:#C0DD97; }
+    .pt { background:#0C447C; border-color:#378ADD; color:#B5D4F4; }
+    .pm { background:#3C3489; border-color:#7F77DD; color:#CECBF6; }
+    .ps { background:#27500A; border-color:#639922; color:#C0DD97; }
+    .pf { background:#633806; border-color:#BA7517; color:#FAC775; }
+    .pr { background:#711B0B; border-color:#D85A30; color:#F5C4B3; }
+    .sb-t { background:#0C447C; color:#85B7EB; }
+    .sb-m { background:#3C3489; color:#AFA9EC; }
+    .sb-s { background:#27500A; color:#97C459; }
+    .sb-f { background:#633806; color:#EF9F27; }
+    .sb-r { background:#711B0B; color:#F0997B; }
+    .sb-d { background:#444441; color:#D3D1C7; }
+    .hc-t { background:#0C447C; border-color:#378ADD; color:#B5D4F4; }
+    .hc-m { background:#3C3489; border-color:#7F77DD; color:#CECBF6; }
+    .hc-s { background:#27500A; border-color:#639922; color:#C0DD97; }
+    .hc-f { background:#633806; border-color:#BA7517; color:#FAC775; }
+    .hc-am { background:#26215C; border-color:#534AB7; color:#CECBF6; }
+    .hc-af { background:#412402; border-color:#854F0B; color:#FAC775; }
+  }
+</style>
+
+<div class="wrap">
+  <h2>3 Aylık YKS Planı</h2>
+  <p class="sub">TYT 70-75 net · AYT 18-24 net · Günde 6-7 saat · Sayısal ağırlık</p>
+
+  <!-- AY 1 -->
+  <div class="ay-block a1">
+    <div class="ay-header">
+      <span class="ay-no">1. Ay</span>
+      <span class="ay-title">Temel kurma — TYT odaklı</span>
+      <span class="ay-desc">Mat + Fen sıfırdan · Türkçe & Sosyal pekiştir</span>
+    </div>
+    <div class="ders-rows">
+      <div class="ders-row">
+        <span class="ders-label">Türkçe</span>
+        <div class="pills">
+          <span class="pill pt">Paragraf</span>
+          <span class="pill pt">Cümlede Anlam</span>
+          <span class="pill pt">Sözcükte Anlam</span>
+          <span class="pill pt">Dil Bilgisi</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Matematik</span>
+        <div class="pills">
+          <span class="pill pm">Temel Kavramlar</span>
+          <span class="pill pm">Sayı Basamakları</span>
+          <span class="pill pm">Rasyonel Sayılar</span>
+          <span class="pill pm">Üslü Sayılar</span>
+          <span class="pill pm">Köklü Sayılar</span>
+          <span class="pill pm">Mutlak Değer</span>
+          <span class="pill pm">Denklem Çözme</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Geometri</span>
+        <div class="pills">
+          <span class="pill pm">Açılar ve Üçgenler</span>
+          <span class="pill pm">Dikdörtgen</span>
+          <span class="pill pm">Çokgenler</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Sosyal</span>
+        <div class="pills">
+          <span class="pill ps">Milli Mücadele</span>
+          <span class="pill ps">İlk/Orta Çağ Türk Dünyası</span>
+          <span class="pill ps">İklim Bilgisi</span>
+          <span class="pill ps">Nüfus ve Yerleşme</span>
+          <span class="pill ps">Bilgi Felsefesi</span>
+          <span class="pill ps">Felsefenin Alanı</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Fen</span>
+        <div class="pills">
+          <span class="pill pf">Hareket ve Kuvvet</span>
+          <span class="pill pf">Isı Sıcaklık</span>
+          <span class="pill pf">Kimya Bilimi</span>
+          <span class="pill pf">Maddenin Halleri</span>
+          <span class="pill pf">Hücre ve Organelleri</span>
+          <span class="pill pf">Canlıların Sınıflandırılması</span>
+        </div>
+      </div>
+      <div class="note-row">⚠ Matematik sıfırdan olduğu için bu ay konu ilerlemesi yavaş olacak — normal, panik yapma. Günde 2.5 saat mat şart.</div>
+    </div>
+  </div>
+
+  <!-- AY 2 -->
+  <div class="ay-block a2">
+    <div class="ay-header">
+      <span class="ay-no">2. Ay</span>
+      <span class="ay-title">TYT tamamlama + AYT girişi</span>
+      <span class="ay-desc">Kalan TYT konuları · AYT Mat temeli</span>
+    </div>
+    <div class="ders-rows">
+      <div class="ders-row">
+        <span class="ders-label">Türkçe</span>
+        <div class="pills">
+          <span class="pill pt">Yazım Kuralları</span>
+          <span class="pill pt">Noktalama İşaretleri</span>
+          <span class="pill pt">TYT denemeleri</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Matematik</span>
+        <div class="pills">
+          <span class="pill pm">Problemler</span>
+          <span class="pill pm">Basit Eşitsizlikler</span>
+          <span class="pill pm">Permütasyon-Komb.</span>
+          <span class="pill pm">Fonksiyonlar</span>
+          <span class="pill pm">Olasılık</span>
+          <span class="pill pm">Kümeler</span>
+          <span class="pill pm">Bölünebilme</span>
+          <span class="pill pm">Veri-İstatistik</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Geometri</span>
+        <div class="pills">
+          <span class="pill pm">Katı Cisimler</span>
+          <span class="pill pm">Yamuk</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Sosyal</span>
+        <div class="pills">
+          <span class="pill ps">Atatürkçülük ve İnkılap</span>
+          <span class="pill ps">Türklerin İslamiyet'i Kabulü</span>
+          <span class="pill ps">Doğal Afetler</span>
+          <span class="pill ps">Ahlak Felsefesi</span>
+          <span class="pill ps">Varlık Felsefesi</span>
+          <span class="pill ps">Bilgi ve İnanç</span>
+          <span class="pill ps">Ahlak ve Değerler</span>
+          <span class="pill ps">Vahiy ve Akıl</span>
+          <span class="pill ps">İbadetler</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Fen</span>
+        <div class="pills">
+          <span class="pill pf">Optik</span>
+          <span class="pill pf">Dalgalar</span>
+          <span class="pill pf">Asit Baz ve Tuz</span>
+          <span class="pill pf">Karışımlar</span>
+          <span class="pill pf">Kim. Türler Arası Etk.</span>
+          <span class="pill pf">Kalıtım</span>
+          <span class="pill pf">Hücre Bölünmeleri</span>
+          <span class="pill pf">Ekosistem Ekoloji</span>
+          <span class="pill pf">Canlıların Temel Bileş.</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">AYT Mat</span>
+        <div class="pills">
+          <span class="pill pr">Temel Kavramlar</span>
+          <span class="pill pr">Fonksiyon, Polinom, II. Dereceden Denklemler</span>
+          <span class="pill pr">Denklem-Eşitsizlik</span>
+          <span class="pill pr">Trigonometri (giriş)</span>
+          <span class="pill pr">Kümeler ve Kartezyen Çarpım</span>
+          <span class="pill pr">Mantık</span>
+        </div>
+      </div>
+      <div class="note-row">Bu ay Problemler konusuna en az 10 gün ayır — TYT matematikteki en büyük yük bu. AYT'ye sadece ay sonu gir. Sayı Basamakları, Mutlak Değer ve Üslü Sayılar TYT'den geliyor — AYT sorularında tekrar et, ayrı çalışmana gerek yok.</div>
+    </div>
+  </div>
+
+  <!-- AY 3 -->
+  <div class="ay-block a3">
+    <div class="ay-header">
+      <span class="ay-no">3. Ay</span>
+      <span class="ay-title">AYT derinleştirme + deneme dönemi</span>
+      <span class="ay-desc">AYT konuları bitir · Haftada 2 TYT + 1 AYT denemesi</span>
+    </div>
+    <div class="ders-rows">
+      <div class="ders-row">
+        <span class="ders-label">AYT Mat</span>
+        <div class="pills">
+          <span class="pill pr">Parabol</span>
+          <span class="pill pr">Logaritma, Diziler</span>
+          <span class="pill pr">Doğru ve Noktanın Analitik İncelenmesi</span>
+          <span class="pill pr">Permütasyon, Kombinasyon, Olasılık</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">AYT Fizik</span>
+        <div class="pills">
+          <span class="pill pr">İndüksiyon ve Alt. Akım</span>
+          <span class="pill pr">Elektrik Alan ve Potansiyel</span>
+          <span class="pill pr">Basit Harm. Hareket</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">AYT Kimya</span>
+        <div class="pills">
+          <span class="pill pr">Kimya ve Elektrik</span>
+          <span class="pill pr">Sıvı Çözeltiler</span>
+          <span class="pill pr">Organik Kimya</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">AYT Biyoloji</span>
+        <div class="pills">
+          <span class="pill pr">Genetik Şifre ve Protein Sent.</span>
+          <span class="pill pr">Komünite ve Popülasyon Ekolojisi</span>
+          <span class="pill pr">Bitki Biyolojisi</span>
+          <span class="pill pr">Dolaşım ve Bağışıklık</span>
+          <span class="pill pr">Solunum Sistemi</span>
+        </div>
+      </div>
+      <div class="ders-row">
+        <span class="ders-label">Tekrar</span>
+        <div class="pills">
+          <span class="pill ps">TYT Türkçe tekrar</span>
+          <span class="pill ps">TYT Mat eksik konu</span>
+          <span class="pill ps">Deneme analizi</span>
+        </div>
+      </div>
+      <div class="note-row">3. ayın son 2 haftası yeni konu girme, sadece deneme + hata analizi. AYT Fizik/Kimya'ya çok zaman harcama — hedef düşük, biyoloji daha verimli.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Günlük dağılım -->
+  <div class="section-title">Haftalık gün planı (6-7 saat)</div>
+  <table class="plan-table">
+    <thead>
+      <tr><th>Gün</th><th>Sabah (3 saat)</th><th>Öğleden sonra (3-4 saat)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="gun">Pazartesi</td>
+        <td><span class="saat-badge sb-m">Mat</span> 3 saat konu + soru</td>
+        <td><span class="saat-badge sb-f">Fen</span> 2 saat · <span class="saat-badge sb-t">Türkçe</span> 1 saat</td>
+      </tr>
+      <tr>
+        <td class="gun">Salı</td>
+        <td><span class="saat-badge sb-m">Mat</span> 2.5 saat · <span class="saat-badge sb-t">Türkçe</span> 0.5 saat</td>
+        <td><span class="saat-badge sb-s">Sosyal</span> 3 saat konu + soru</td>
+      </tr>
+      <tr>
+        <td class="gun">Çarşamba</td>
+        <td><span class="saat-badge sb-m">Mat</span> 3 saat konu + soru</td>
+        <td><span class="saat-badge sb-f">Fen</span> 3 saat · <span class="saat-badge sb-t">Türkçe</span> 0.5 saat</td>
+      </tr>
+      <tr>
+        <td class="gun">Perşembe</td>
+        <td><span class="saat-badge sb-m">Mat</span> 2 saat · <span class="saat-badge sb-s">Sosyal</span> 1 saat</td>
+        <td><span class="saat-badge sb-f">Fen</span> 2 saat · <span class="saat-badge sb-t">Türkçe</span> 1 saat</td>
+      </tr>
+      <tr>
+        <td class="gun">Cuma</td>
+        <td><span class="saat-badge sb-m">Mat</span> 3 saat (zor konular)</td>
+        <td><span class="saat-badge sb-s">Sosyal</span> 2 saat · <span class="saat-badge sb-f">Fen</span> 1.5 saat</td>
+      </tr>
+      <tr>
+        <td class="gun">Cumartesi</td>
+        <td colspan="2"><span class="saat-badge sb-d">TYT Denemesi</span> 2.5 saat · <span class="saat-badge sb-m">Mat hata analizi</span> 2 saat · <span class="saat-badge sb-f">Fen tekrar</span> 1.5 saat</td>
+      </tr>
+      <tr>
+        <td class="gun">Pazar</td>
+        <td colspan="2"><span class="saat-badge sb-t">Türkçe tekrar</span> 1.5 saat · <span class="saat-badge sb-s">Sosyal tekrar</span> 1.5 saat · <span class="saat-badge sb-d">Dinlenme / esnek</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="divider"></div>
+
+  <!-- Hedef netler -->
+  <div class="section-title">Revize hedef netler</div>
+  <div class="hedef-row">
+    <div class="hedef-card hc-t"><div class="hl">TYT Türkçe</div><div class="hv">32-35</div></div>
+    <div class="hedef-card hc-m"><div class="hl">TYT Mat+Geo</div><div class="hv">22-26</div></div>
+    <div class="hedef-card hc-s"><div class="hl">TYT Sosyal</div><div class="hv">14-16</div></div>
+    <div class="hedef-card hc-f"><div class="hl">TYT Fen</div><div class="hv">10-12</div></div>
+  </div>
+  <div class="hedef-row" style="margin-top:6px">
+    <div class="hedef-card hc-am"><div class="hl">AYT Mat</div><div class="hv">10-14</div></div>
+    <div class="hedef-card hc-af"><div class="hl">AYT Fizik</div><div class="hv">2-3</div></div>
+    <div class="hedef-card hc-af"><div class="hl">AYT Kimya</div><div class="hv">3-4</div></div>
+    <div class="hedef-card hc-af"><div class="hl">AYT Biyoloji</div><div class="hv">4-5</div></div>
+  </div>
+  <p style="font-size:11px;color:var(--color-text-tertiary);margin-top:8px">TYT toplam ~78-90 · AYT toplam ~19-26 — 3 ay için gerçekçi tavan</p>
+</div>
