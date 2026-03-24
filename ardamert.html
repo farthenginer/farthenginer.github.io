@@ -1,0 +1,225 @@
+
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-sans); }
+  .wrap { padding: 1rem 0; }
+  .header { margin-bottom: 1.5rem; }
+  .header h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .header p { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
+  .net-summary { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-bottom: 1.5rem; }
+  .net-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 10px; text-align: center; }
+  .net-card .label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .net-card .val { font-size: 20px; font-weight: 500; }
+  .net-card .target { font-size: 10px; color: var(--color-text-tertiary); margin-top: 2px; }
+  .net-card.total { background: var(--color-background-info); }
+  .net-card.total .label { color: var(--color-text-info); }
+  .net-card.total .val { color: var(--color-text-info); }
+
+  .ders-block { margin-bottom: 1.25rem; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+  .ders-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .ders-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); display: flex; align-items: center; gap: 8px; }
+  .ders-badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; }
+  .ders-meta { font-size: 12px; color: var(--color-text-secondary); }
+  .konu-list { padding: 0; margin: 0; list-style: none; }
+  .konu-row { display: flex; align-items: center; padding: 7px 14px; border-bottom: 0.5px solid var(--color-border-tertiary); gap: 10px; }
+  .konu-row:last-child { border-bottom: none; }
+  .konu-name { flex: 1; font-size: 13px; color: var(--color-text-primary); }
+  .konu-soru { font-size: 12px; color: var(--color-text-secondary); min-width: 80px; text-align: right; }
+  .ay-badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; min-width: 44px; text-align: center; }
+  .ay1 { background: #E6F1FB; color: #0C447C; }
+  .ay2 { background: #E1F5EE; color: #085041; }
+  .ay3 { background: #FAEEDA; color: #633806; }
+  .strategy-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; margin-bottom: 1.25rem; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  .strategy-box strong { color: var(--color-text-primary); font-weight: 500; }
+  .timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 1.5rem; }
+  .month-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; }
+  .month-card h4 { font-size: 13px; font-weight: 500; margin: 0 0 8px; }
+  .month-card ul { margin: 0; padding: 0 0 0 14px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.8; }
+  .month1 { border-top: 2px solid #378ADD; }
+  .month2 { border-top: 2px solid #1D9E75; }
+  .month3 { border-top: 2px solid #BA7517; }
+</style>
+
+<div class="wrap">
+  <div class="header">
+    <h2>TYT 3 Aylık Çalışma Planı</h2>
+    <p>Sadece en yüksek getirili konular · Hedef: 43–45 net</p>
+  </div>
+
+  <div class="net-summary">
+    <div class="net-card">
+      <div class="label">Türkçe</div>
+      <div class="val" style="color:#185FA5">25</div>
+      <div class="target">hedef ≥25</div>
+    </div>
+    <div class="net-card">
+      <div class="label">Sosyal</div>
+      <div class="val" style="color:#0F6E56">12</div>
+      <div class="target">hedef ≥12</div>
+    </div>
+    <div class="net-card">
+      <div class="label">Matematik</div>
+      <div class="val" style="color:#BA7517">5</div>
+      <div class="target">hedef ≥5</div>
+    </div>
+    <div class="net-card">
+      <div class="label">Fen</div>
+      <div class="val" style="color:#993556">8</div>
+      <div class="target">hedef ≥8</div>
+    </div>
+    <div class="net-card total">
+      <div class="label">Toplam</div>
+      <div class="val">50</div>
+      <div class="target">soru kapasitesi</div>
+    </div>
+  </div>
+
+  <div class="strategy-box">
+    <strong>Strateji:</strong> Soru kapasiten 50 net ama yanlış da yapacaksın. Türkçe'de 40 sorudan 27–28 doğru yapsan 25 net çıkar. Sosyal 20 sorudan 14 doğru = 12 net. Matematik+Geometri 39 sorudan 7 doğru = 5 net. Fen 19 sorudan 10 doğru = 8 net. <strong>43–45 net aralığına otur.</strong>
+  </div>
+
+  <!-- Türkçe -->
+  <div class="ders-block">
+    <div class="ders-header">
+      <span class="ders-title">
+        <span style="width:10px;height:10px;border-radius:50%;background:#378ADD;display:inline-block"></span>
+        Türkçe
+      </span>
+      <span class="ders-meta">Hedef: 27–28 doğru → <strong>25 net</strong> &nbsp;|&nbsp; 40 soruda odak 3 konuya</span>
+    </div>
+    <ul class="konu-list">
+      <li class="konu-row">
+        <span class="konu-name">📌 Paragraf</span>
+        <span class="konu-soru">ort. 25.2 soru</span>
+        <span class="ay-badge ay1">1. ay</span>
+      </li>
+      <li class="konu-row">
+        <span class="konu-name">Cümlede Anlam</span>
+        <span class="konu-soru">ort. 4.4 soru</span>
+        <span class="ay-badge ay2">2. ay</span>
+      </li>
+      <li class="konu-row">
+        <span class="konu-name">Sözcükte Anlam</span>
+        <span class="konu-soru">ort. 3.6 soru</span>
+        <span class="ay-badge ay2">2. ay</span>
+      </li>
+      <li class="konu-row">
+        <span class="konu-name">Dil Bilgisi</span>
+        <span class="konu-soru">ort. 2.4 soru</span>
+        <span class="ay-badge ay3">3. ay</span>
+      </li>
+      <li class="konu-row">
+        <span class="konu-name">Yazım + Noktalama</span>
+        <span class="konu-soru">ort. 2+2 soru</span>
+        <span class="ay-badge ay3">3. ay</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Sosyal -->
+  <div class="ders-block">
+    <div class="ders-header">
+      <span class="ders-title">
+        <span style="width:10px;height:10px;border-radius:50%;background:#1D9E75;display:inline-block"></span>
+        Sosyal Bilimler
+      </span>
+      <span class="ders-meta">Hedef: 14 doğru → <strong>12 net</strong> &nbsp;|&nbsp; 20 soru, tümü 1'er soru</span>
+    </div>
+    <ul class="konu-list">
+      <li class="konu-row"><span class="konu-name">Tarih — Milli Mücadele</span><span class="konu-soru">ort. 1.2 soru</span><span class="ay-badge ay1">1. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Tarih — İlk ve Orta Çağ Türk Dünyası</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay1">1. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Tarih — Türklerin İslamiyet'i Kabulü</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay1">1. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Coğrafya — Nüfus ve Yerleşme</span><span class="konu-soru">ort. 1.2 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Coğrafya — İklim Bilgisi</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Felsefe — Felsefenin Alanı</span><span class="konu-soru">ort. 1.2 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Felsefe — Bilgi Felsefesi</span><span class="konu-soru">ort. 1.2 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Felsefe — Ahlak Felsefesi</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay3">3. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Din Kültürü — Bilgi ve İnanç</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay3">3. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Din Kültürü — Ahlak ve Değerler</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay3">3. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Din Kültürü — Vahiy ve Akıl</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay3">3. ay</span></li>
+    </ul>
+  </div>
+
+  <!-- Matematik -->
+  <div class="ders-block">
+    <div class="ders-header">
+      <span class="ders-title">
+        <span style="width:10px;height:10px;border-radius:50%;background:#BA7517;display:inline-block"></span>
+        Matematik + Geometri
+      </span>
+      <span class="ders-meta">Hedef: 7 doğru → <strong>5 net</strong> &nbsp;|&nbsp; Sadece 3 konu seç, derine in</span>
+    </div>
+    <ul class="konu-list">
+      <li class="konu-row">
+        <span class="konu-name">📌 Problemler <span style="font-size:11px;color:var(--color-text-secondary)">(en ağırlıklı konu — 11.6 soru)</span></span>
+        <span class="konu-soru">ort. 11.6 soru</span>
+        <span class="ay-badge ay1">1. ay</span>
+      </li>
+      <li class="konu-row">
+        <span class="konu-name">Geometri — Açılar ve Üçgenler</span>
+        <span class="konu-soru">ort. 4.0 soru</span>
+        <span class="ay-badge ay2">2. ay</span>
+      </li>
+      <li class="konu-row">
+        <span class="konu-name">Geometri — Katı Cisimler</span>
+        <span class="konu-soru">ort. 2.0 soru</span>
+        <span class="ay-badge ay3">3. ay</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Fen -->
+  <div class="ders-block">
+    <div class="ders-header">
+      <span class="ders-title">
+        <span style="width:10px;height:10px;border-radius:50%;background:#D4537E;display:inline-block"></span>
+        Fen Bilimleri
+      </span>
+      <span class="ders-meta">Hedef: 10 doğru → <strong>8 net</strong> &nbsp;|&nbsp; Biyoloji ağırlıklı çalış</span>
+    </div>
+    <ul class="konu-list">
+      <li class="konu-row"><span class="konu-name">Biyoloji — Hücre ve Organelleri</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay1">1. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Biyoloji — Canlıların Sınıflandırılması</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay1">1. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Biyoloji — Canlıların Temel Bileşenleri</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay1">1. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Biyoloji — Ekosistem Ekoloji</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Biyoloji — Kalıtım</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Kimya — Kimya Bilimi</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Kimya — Maddenin Halleri</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay2">2. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Kimya — Karışımlar</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay3">3. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Fizik — Optik</span><span class="konu-soru">ort. 1.2 soru</span><span class="ay-badge ay3">3. ay</span></li>
+      <li class="konu-row"><span class="konu-name">Fizik — Isı Sıcaklık ve Genleşme</span><span class="konu-soru">ort. 1.0 soru</span><span class="ay-badge ay3">3. ay</span></li>
+    </ul>
+  </div>
+
+  <!-- Aylık takvim -->
+  <div class="timeline">
+    <div class="month-card month1">
+      <h4 style="color:#185FA5">1. Ay — Temel</h4>
+      <ul>
+        <li>Paragraf çözme tekniği</li>
+        <li>Tarih 3 konu bitir</li>
+        <li>Problemlere giriş</li>
+        <li>Biyoloji temel konular</li>
+      </ul>
+    </div>
+    <div class="month-card month2">
+      <h4 style="color:#0F6E56">2. Ay — Pekiştir</h4>
+      <ul>
+        <li>Cümle + Sözcük anlamı</li>
+        <li>Coğrafya + Felsefe</li>
+        <li>Geometri: Açılar</li>
+        <li>Biyoloji + Kimya</li>
+      </ul>
+    </div>
+    <div class="month-card month3">
+      <h4 style="color:#BA7517">3. Ay — Tamamla</h4>
+      <ul>
+        <li>Dil bilgisi + Yazım</li>
+        <li>Din Kültürü + Felsefe</li>
+        <li>Katı cisimler</li>
+        <li>Fizik + Kimya kalan</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
